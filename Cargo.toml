@@ -1,0 +1,29 @@
+[package]
+name = "connect-sdk-rust"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dom Rodriguez (shymega) <shymega@shymega.org.uk>"]
+keywords = ["api-client", "1password", "api", "passwords"]
+categories = ["api-client"]
+license = "MIT"
+publish = false
+description = "Rust SDK for 1Password Connect"
+readme = "/README.md" # to be populated
+repository = "https://github.com/shymega/connect-sdk-rust.git"
+homepage = "https://github.com/shymega/connect-sdk-rust/wiki" # to be populated
+
+[lib]
+name = "connect_sdk_rust"
+path = "src/lib.rs"
+
+[features]
+default = []
+
+[dependencies]
+serde = "1.0.136"
+serde_json = "1.0.79"
+serde_derive = "1.0.136"
+
+[dependencies.ureq]
+version = "2.4.0"
+features = ["json", "charset"]
