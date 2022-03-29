@@ -1,5 +1,7 @@
 //! This module houses the foundation of the SDK's HTTP handling for outgoing requests to 1Password.
 
+use std::time::Duration;
+
 use ureq::{Agent, AgentBuilder, Error, Middleware, MiddlewareNext, Request, Response};
 
 /// `HeaderTokenMiddleware` injects the `Authorization` HTTP header into all outgoing requests,
@@ -12,8 +14,10 @@ struct APIContentTypeHeaderMiddleware;
 
 impl Middleware for HeaderTokenMiddleware {
     fn handle(&self, request: Request, next: MiddlewareNext) -> Result<Response, Error> {
-        next.handle(request.set("Authorization", format!("Bearer {}", self.0.as_str().clone())
-            .as_str()))
+        next.handle(request.set(
+            "Authorization",
+            format!("Bearer {}", self.0.as_str()).as_str(),
+        ))
     }
 }
 
@@ -29,18 +33,22 @@ impl Middleware for APIContentTypeHeaderMiddleware {
 pub struct Client {
     /// This field is for the `ureq::Agent` struct once initialized by the `Client::new`
     /// function. It is not designed for manual initialization.
-    pub http: Agent,
+    #[allow(dead_code)]
+    http: Agent,
 }
 
 impl Client {
     /// This method of the `Client` implementation initialises a new `ureq::Agent` for the SDK
     /// HTTP handling module.
-    pub fn new(token: String, user_agent: String) -> Client {
-        Client {
+    #[must_use]
+    #[allow(dead_code)]
+    pub fn new(token: &str, user_agent: &str, timeout: Option<Duration>) -> Self {
+        Self {
             http: AgentBuilder::new()
-                .middleware(HeaderTokenMiddleware(token.clone()))
+                .middleware(HeaderTokenMiddleware(String::from(token)))
                 .middleware(APIContentTypeHeaderMiddleware)
-                .user_agent(&user_agent) // add Duration, unwrap Option<Duration> so we can default if necessary
+                .timeout(timeout.unwrap_or(Duration::from_secs(4))) // default to 4 secs
+                .user_agent(user_agent)
                 .build()
         }
     }

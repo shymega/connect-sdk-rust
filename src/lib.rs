@@ -18,5 +18,7 @@
     variant_size_differences
 )]
 
-mod api;
-pub use api::client::Client;
+#[macro_use]
+extern crate serde;
+
+mod raw;
