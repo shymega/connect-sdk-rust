@@ -43,7 +43,10 @@ pub struct FullItem {
 }
 
 impl FullItem {
-    pub fn new(vault: crate::raw::models::ItemVault, category: Category) -> FullItem {
+    pub fn new(
+        vault: crate::raw::models::ItemVault,
+        category: Category,
+    ) -> FullItem {
         FullItem {
             id: None,
             title: None,
@@ -65,7 +68,18 @@ impl FullItem {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Category {
     #[serde(rename = "LOGIN")]
@@ -117,7 +131,18 @@ impl Default for Category {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum State {
     #[serde(rename = "ARCHIVED")]

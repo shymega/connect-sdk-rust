@@ -42,7 +42,18 @@ impl ApiRequest {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Action {
     #[serde(rename = "READ")]
@@ -62,7 +73,18 @@ impl Default for Action {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Result {
     #[serde(rename = "SUCCESS")]

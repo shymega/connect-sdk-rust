@@ -52,7 +52,18 @@ impl Field {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Type {
     #[serde(rename = "STRING")]
@@ -80,7 +91,18 @@ impl Default for Type {
 }
 
 /// Some item types, Login and Password, have fields used for autofill. This property indicates that purpose and is required for some item types.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Purpose {
     #[serde(rename = "")]

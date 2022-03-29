@@ -37,7 +37,10 @@ pub struct Item {
 }
 
 impl Item {
-    pub fn new(vault: crate::raw::models::ItemVault, category: Category) -> Item {
+    pub fn new(
+        vault: crate::raw::models::ItemVault,
+        category: Category,
+    ) -> Item {
         Item {
             id: None,
             title: None,
@@ -56,7 +59,18 @@ impl Item {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Category {
     #[serde(rename = "LOGIN")]
@@ -107,7 +121,18 @@ impl Default for Category {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum State {
     #[serde(rename = "ARCHIVED")]

@@ -2,7 +2,9 @@
 
 use std::time::Duration;
 
-use ureq::{Agent, AgentBuilder, Error, Middleware, MiddlewareNext, Request, Response};
+use ureq::{
+    Agent, AgentBuilder, Error, Middleware, MiddlewareNext, Request, Response,
+};
 
 /// `HeaderTokenMiddleware` injects the `Authorization` HTTP header into all outgoing requests,
 /// using the API token passed during `Agent` initialisation.
@@ -13,7 +15,11 @@ struct HeaderTokenMiddleware(String);
 struct APIContentTypeHeaderMiddleware;
 
 impl Middleware for HeaderTokenMiddleware {
-    fn handle(&self, request: Request, next: MiddlewareNext) -> Result<Response, Error> {
+    fn handle(
+        &self,
+        request: Request,
+        next: MiddlewareNext,
+    ) -> Result<Response, Error> {
         next.handle(request.set(
             "Authorization",
             format!("Bearer {}", self.0.as_str()).as_str(),
@@ -22,7 +28,11 @@ impl Middleware for HeaderTokenMiddleware {
 }
 
 impl Middleware for APIContentTypeHeaderMiddleware {
-    fn handle(&self, request: Request, next: MiddlewareNext) -> Result<Response, Error> {
+    fn handle(
+        &self,
+        request: Request,
+        next: MiddlewareNext,
+    ) -> Result<Response, Error> {
         // set default `Content-Type` header for Connect API.
         next.handle(request.set("Content-Type", "application/json"))
     }
@@ -42,7 +52,11 @@ impl Client {
     /// HTTP handling module.
     #[must_use]
     #[allow(dead_code)]
-    pub fn new(token: &str, user_agent: &str, timeout: Option<Duration>) -> Self {
+    pub fn new(
+        token: &str,
+        user_agent: &str,
+        timeout: Option<Duration>,
+    ) -> Self {
         Self {
             http: AgentBuilder::new()
                 .middleware(HeaderTokenMiddleware(String::from(token)))

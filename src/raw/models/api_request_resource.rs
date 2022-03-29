@@ -32,7 +32,18 @@ impl ApiRequestResource {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Type {
     #[serde(rename = "ITEM")]

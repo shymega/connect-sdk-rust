@@ -17,10 +17,16 @@ pub struct Vault {
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     /// The vault version
-    #[serde(rename = "attributeVersion", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "attributeVersion",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub attribute_version: Option<i32>,
     /// The version of the vault contents
-    #[serde(rename = "contentVersion", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "contentVersion",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub content_version: Option<i32>,
     /// Number of active items in the vault
     #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
@@ -50,7 +56,18 @@ impl Vault {
 }
 
 ///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    Hash,
+    Serialize,
+    Deserialize,
+)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Type {
     #[serde(rename = "USER_CREATED")]
