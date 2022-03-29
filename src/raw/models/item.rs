@@ -57,6 +57,7 @@ impl Item {
 
 ///
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[allow(clippy::upper_case_acronyms)]
 pub enum Category {
     #[serde(rename = "LOGIN")]
     LOGIN,
@@ -107,6 +108,7 @@ impl Default for Category {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[allow(clippy::upper_case_acronyms)]
 pub enum State {
     #[serde(rename = "ARCHIVED")]
     ARCHIVED,

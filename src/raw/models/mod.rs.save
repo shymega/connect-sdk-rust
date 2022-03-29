@@ -20,11 +20,9 @@ pub use vault::*;
 
 mod api_request;
 mod api_request_actor;
-#[allow(clippy::used_underscore_binding)]
 mod api_request_resource;
 mod api_request_resource_vault;
 mod error_response;
-#[allow(clippy::used_underscore_binding)]
 mod field;
 mod field_section;
 mod file;
@@ -38,5 +36,5 @@ mod item;
 mod item_urls;
 mod item_vault;
 mod service_dependency;
-#[allow(clippy::used_underscore_binding)]
+#[allow(clippy::
 mod vault;

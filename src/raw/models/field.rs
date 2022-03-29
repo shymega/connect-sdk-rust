@@ -9,6 +9,7 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[allow(clippy::used_underscore_binding)]
 pub struct Field {
     #[serde(rename = "id")]
     pub id: String,
@@ -34,6 +35,7 @@ pub struct Field {
 }
 
 impl Field {
+    #[allow(clippy::used_underscore_binding)]
     pub fn new(id: String, _type: Type) -> Field {
         Field {
             id,
@@ -51,6 +53,7 @@ impl Field {
 
 ///
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[allow(clippy::upper_case_acronyms)]
 pub enum Type {
     #[serde(rename = "STRING")]
     STRING,
@@ -78,6 +81,7 @@ impl Default for Type {
 
 /// Some item types, Login and Password, have fields used for autofill. This property indicates that purpose and is required for some item types.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[allow(clippy::upper_case_acronyms)]
 pub enum Purpose {
     #[serde(rename = "")]
     Empty,
