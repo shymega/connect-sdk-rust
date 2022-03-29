@@ -49,7 +49,7 @@ impl Client {
                 .middleware(APIContentTypeHeaderMiddleware)
                 .timeout(timeout.unwrap_or(Duration::from_secs(4))) // default to 4 secs
                 .user_agent(user_agent)
-                .build()
+                .build(),
         }
     }
 }
