@@ -8,7 +8,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Update aptitude
     - name: Build connect-sdk-rust
       run: cargo build --verbose
     - name: Run connect-sdk-rust unit tests
