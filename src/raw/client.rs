@@ -61,7 +61,7 @@ impl Client {
             http: AgentBuilder::new()
                 .middleware(HeaderTokenMiddleware(String::from(token)))
                 .middleware(APIContentTypeHeaderMiddleware)
-                .timeout(timeout.unwrap_or(Duration::from_secs(4))) // default to 4 secs
+                .timeout(timeout.unwrap_or(Duration::from_secs(10))) // default to 10 seconds
                 .user_agent(user_agent)
                 .build(),
         }
