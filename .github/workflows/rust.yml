@@ -1,0 +1,14 @@
+name: CI builds
+
+on: [push, pull_request]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build connect-sdk-rust
+      run: cargo build --verbose
+    - name: Run connect-sdk-rust unit tests
+      run: cargo test --verbose
